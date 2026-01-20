@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2026-01-20T07:31:08.691Z</updated>
+  <updated>2026-01-20T12:45:29.460Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,22 +17,51 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>矢量波模型适配场景分析</title>
+    <link href="http://example.com/2026/01/20/%E7%9F%A2%E9%87%8F%E6%B3%A2%E6%88%90%E7%AB%8B%E5%9C%BA%E6%99%AF%E6%8E%A8%E5%AF%BC/"/>
+    <id>http://example.com/2026/01/20/%E7%9F%A2%E9%87%8F%E6%B3%A2%E6%88%90%E7%AB%8B%E5%9C%BA%E6%99%AF%E6%8E%A8%E5%AF%BC/</id>
+    <published>2026-01-20T12:44:22.643Z</published>
+    <updated>2026-01-20T12:45:29.460Z</updated>
+    
+    <content type="html"><![CDATA[<p>设发射天线位置为$\mathbf{r}^T_1$,散射体位置为$\mathbf{r}_1$,接收天线位置为$\mathbf{r}^R_m$​。</p><p>发射天线到散射体的方向向量为$\hat{\mathbf{r}}_1&#x3D;[x_1,y_1,z_1]$,散射体到接收天线（以参考天线为例）的方向向量为$\hat{\mathbf{r}}_2&#x3D;[x_2,y_2,z_2]$。</p><p>发射天线为垂直地面放置的线极化天线，有$\mathbf{Il}&#x3D;[0,0,1]&#x3D;\hat{z}$。</p><p>根据并矢格林函数，发射天线在散射体位置激发的dipole方向为<br>$$<br>\begin{aligned}<br>\mathbf{b}&amp; &#x3D; \hat{\mathbf{r}}_1\times (\hat{\mathbf{r}}_1\times \mathbf{Il}) \<br>&amp; &#x3D; \hat{\mathbf{r}}_1(\hat{\mathbf{r}}_1\cdot\hat{z}) - \hat{z}(\hat{\mathbf{r}}_1\cdot\hat{\mathbf{r}}_1)\<br>&amp;&#x3D;[x_1z_1,y_1z_1,z_1^2] - [0,0,x_1^2+y_1^2+z_1^2] \<br>&amp;&#x3D;[x_1z_1,y_1z_1,-x_1^2-y_1^2]<br>\end{aligned}<br>$$<br>induced dipole在接收天线处的电场方向为<br>$$<br>\begin{aligned}<br>\mathbf{c} &amp;&#x3D; \hat{\mathbf{r}}_2\times (\hat{\mathbf{r}}_2 \times \mathbf{b})\</p><p>\end{aligned}<br>$$<br><strong>Case1:</strong></p><p>当接收天线与发射天线共置（或是远场情况下，位置非常接近）时，$\hat{\mathbf{r}}_1 \approx -\hat{\mathbf{r}}_2$,则上式可化简为<br>$$<br>\begin{aligned}<br>\mathbf{c} &amp;&#x3D; -\hat{\mathbf{r}}_1\times(-\hat{\mathbf{r}}_1 \times \mathbf{b})\<br>&amp; &#x3D; \hat{\mathbf{r}}_1(\hat{\mathbf{r}}_1\cdot\mathbf{b}) - \mathbf{b}(\hat{\mathbf{r}}_1\cdot\hat{\mathbf{r}}_1)\<br>&amp; &#x3D; \mathbf{b}(\hat{\mathbf{r}}_1\cdot\hat{\mathbf{r}}_1)</p><p>\end{aligned}<br>$$<br>其中，由于$\mathbf{b}$与$\hat{\mathbf{r}}_1$垂直，则有$\hat{\mathbf{r}}_1\cdot\mathbf{b}&#x3D;0$。此时$\mathbf{c}$为$\mathbf{b}$的共线向量。</p><p>若用$\hat{z}$方向计算目标到接收天线的电场方向，则为<br>$$<br>\begin{aligned}<br>\mathbf{d}&amp;&#x3D;\hat{\mathbf{r}}_2\times (\hat{\mathbf{r}}_2\times \hat{z}) \<br>&amp; \approx -\hat{\mathbf{r}}_1\times (-\hat{\mathbf{r}}_1\times \hat{z}) \<br>&amp; &#x3D; -\mathbf{b}<br>\end{aligned}<br>$$<br>此时$\mathbf{d}$与$\mathbf{c}$​共线。</p><p>若用任意方向$\mathbf{l} &#x3D; [x_3,y_3,z_3]$计算目标到接收天线的电场方向，则有<br>$$<br>\begin{aligned}<br>\mathbf{e} &amp;&#x3D; \hat{\mathbf{r}}_2\times (\hat{\mathbf{r}}_2\times\mathbf{l}) \<br>&amp; \approx \hat{\mathbf{r}}_1 \times (\hat{\mathbf{r}}_1\times\mathbf{l})  \<br>&amp; &#x3D;  \hat{\mathbf{r}}_1(\hat{\mathbf{r}}_1\cdot \mathbf{l}) - \mathbf{l}(\hat{\mathbf{r}}_1\cdot\hat{\mathbf{r}}_1 ) \<br>&amp; &#x3D; \hat{\mathbf{r}}_1(x_1x_3+y_1y_3+z_1z_3) - \mathbf{l} (x_1^2 + y_1^2 + z_1^2) \<br>&amp; &#x3D; [x_1^2x_3+x_1y_1y_3+x_1z_1z_3,x_1x_3y_1+y_1^2y_3 + y_1z_1z_3,x_1x_3z_1+y_1y_3z_1+z_1^2z_3] \<br>&amp; - [x_1^2x_3+x_3y_1^2+x_3z_1^2,x_1^2y_3+y_1^2y_3+y_3z_1^2,x_1^2z_3+y_1^2z_3+z_1^2z_3] \<br>&amp; &#x3D; [x_1y_1y_3 + x_1z_1z_3 - x_3y_1^2 - x_3z_1^2,x_1x_3y_1+y_1z_1z_3 - x_1^2y_3 - y_3z_1^2,x_1x_3z_1 +y_1y_3z_1 - x_1^2z_3 - y_1^2z_3] \<br>\end{aligned}<br>$$<br>判断$\mathbf{e}$与$\mathbf{b}$是否共线,即<br>$$<br>\begin{aligned}<br>\mathbf{e}\times\mathbf{b} &#x3D; \mathbf{0}.<br>\end{aligned}<br>$$<br>已知:</p><p>$\mathbf{e} &#x3D; \hat{\mathbf{r}}_1(\hat{\mathbf{r}}_1\cdot \mathbf{l}) - \mathbf{l}(\hat{\mathbf{r}}_1\cdot\hat{\mathbf{r}}_1)$,$\mathbf{b} &#x3D; \hat{\mathbf{r}}_1\times [y_1,-x_1,0]$,</p><p>显然，向量$\mathbf{b}$垂直于向量$\hat{\mathbf{r}}_1$与$[y_1,-x_1,0]$, 向量$\mathbf{e}$垂直于向量$\hat{\mathbf{r}}_1$，若两向量在与$\hat{\mathbf{r}}_1$垂直的平面内共线，当且仅当它们同样垂直于$[y_1,-x_1,0]$。因此，问题转化为$\mathbf{e}\cdot[y_1,-x_1,0]&#x3D;0$，即<br>$$<br>\begin{aligned}<br>\mathbf{e}\cdot[y_1,-x_1,0]&amp;&#x3D;[\hat{\mathbf{r}}_1(\hat{\mathbf{r}}_1\cdot\mathbf{l})-\mathbf{l}(\hat{\mathbf{r}}_1\cdot\hat{\mathbf{r}}_1)]\cdot[y_1,-x_1,0] \<br>&amp; &#x3D; -\mathbf{l}|\mathbf{r}_1|^2\cdot[y_1,-x_1,0] \<br>&amp; &#x3D; -|\mathbf{r}_1|^2(x_3y_1 - x_1y_3)<br>\end{aligned}<br>$$<br>故当$x_3y_1-x_1y_3&#x3D;0$，即$x_3y_1 &#x3D; x_1y_3$时，$\mathbf{e}$与$\mathbf{b}$​共线。</p><p>因此，使用矢量波模型在这类特殊情况下与标量波模型的效果一致。</p><p>1）当雷达天线与探测目标位于同一水平面时，显然$\hat{\mathbf{r}}_1&#x3D;[0,0,z_1]$，此时$x_1&#x3D;y_1&#x3D;0$，$x_3y_1-x_1y_3&#x3D;0$恒成立，因此$\mathbf{e}$与$\mathbf{b}$共线。</p><p>2）当雷达天线与探测目标处于不一水平面时，若用$\hat{z} &#x3D; [0,0,1]$构造导向矢量，此时$x_3&#x3D;y_3 &#x3D; 0$，$x_3y_1-x_1y_3&#x3D;0$恒成立，因此$\mathbf{e}$与$\mathbf{b}$共线。</p><p><strong>Case2:</strong></p><p>当接收天线与发射天线分置时，有<br>$$<br>\begin{aligned}<br>\mathbf{c} &amp;&#x3D; \hat{\mathbf{r}}_2\times (\hat{\mathbf{r}}_2 \times \mathbf{b})\<br>&amp; &#x3D; \hat{\mathbf{r}}_2(\hat{\mathbf{r}}_2\cdot\mathbf{b})-\mathbf{b}(\hat{\mathbf{r}}_2\cdot\hat{\mathbf{r}}_2) \<br>&amp; &#x3D; \hat{\mathbf{r}}_2[(x_1x_2+y_1y_2)z_1-z_2(x_1^2+y_1^2)] - \mathbf{b}(x_2^2+y_2^2+z_2^2) \<br>\end{aligned}<br>$$<br>若用$\hat{z}$方向计算目标到接收天线的电场方向，则为<br>$$<br>\begin{aligned}<br>\mathbf{d}&amp;&#x3D;\hat{\mathbf{r}}_2\times (\hat{\mathbf{r}}_2\times \hat{z}) \<br>&amp; &#x3D; \hat{\mathbf{r}}_2(\hat{\mathbf{r}}_2\cdot\hat{z} ) - \hat{z}(\hat{\mathbf{r}}_2\cdot\hat{\mathbf{r}}_2) \<br>&amp; &#x3D; \hat{\mathbf{r}}_2z_2 - \hat{z}(x_2^2+y_2^2+z_2^2) \<br>&amp; &#x3D; [x_2z_2,y_2z_2,-x_2^2-y_2^2]<br>\end{aligned}<br>$$</p><p>一般情况：</p><p>若用任意方向$\mathbf{l} &#x3D; [x_3,y_3,z_3]$计算目标到接收天线的电场方向，则有<br>$$<br>\begin{aligned}<br>\mathbf{e} &amp;&#x3D; \hat{\mathbf{r}}_2\times (\hat{\mathbf{r}}_2\times\mathbf{l}) \<br>&amp; &#x3D;  \hat{\mathbf{r}}_2(\hat{\mathbf{r}}_2\cdot \mathbf{l}) - \mathbf{l}(\hat{\mathbf{r}}_2\cdot\hat{\mathbf{r}}_2 ) \<br>\end{aligned}<br>$$<br>若$\mathbf{e}$与$\mathbf{c}$共线，则有<br>$$<br>\mathbf{e}\times \mathbf{c} &#x3D; 0.<br>$$<br>注意到向量$\mathbf{e}$垂直于$\hat{\mathbf{r}}_2$，向量$\mathbf{c}$垂直于$\hat{\mathbf{r}}_2$。（收发分置的共线条件略显复杂）$\hat{\mathbf{r}}_2$，$\mathbf{b}$，$\mathbf{l}$三者共面时，题设成立。</p><p>1）当雷达天线与目标在同一水平面（z相等），此时两者共线</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;设发射天线位置为$&#92;mathbf{r}^T_1$,散射体位置为$&#92;mathbf{r}_1$,接收天线位置为$&#92;mathbf{r}^R_m$​。&lt;/p&gt;
+&lt;p&gt;发射天线到散射体的方向向量为$&#92;hat{&#92;mathbf{r}}_1&amp;#x3D;[x_1,y_1,z_1]$,散射体到接收天线（以参考天线为例）的方向向量为$&#92;hat{&#92;mathbf{r}}_2&amp;#x3D;[x_2,y_2,z_2]$。&lt;/p&gt;
+&lt;p&gt;发射天线为垂直地面放置的线极化天线，有$&#92;mathbf{Il}&amp;#x3D;[0,0,1]&amp;#x3D;&#92;hat{z}$。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="http://example.com/2026/01/20/hello-world/"/>
     <id>http://example.com/2026/01/20/hello-world/</id>
     <published>2026-01-20T07:31:08.691Z</published>
-    <updated>2026-01-20T07:31:08.691Z</updated>
+    <updated>2026-01-20T13:00:38.518Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;</summary>
     
     
     
+    <category term="教程" scheme="http://example.com/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="博客搭建" scheme="http://example.com/categories/%E6%95%99%E7%A8%8B/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+    <category term="Hexo" scheme="http://example.com/categories/%E6%95%99%E7%A8%8B/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/Hexo/"/>
+    
+    
+    <category term="个人技术博客搭建" scheme="http://example.com/tags/%E4%B8%AA%E4%BA%BA%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+    <category term="Hexo" scheme="http://example.com/tags/Hexo/"/>
+    
+    <category term="GitHub Pages" scheme="http://example.com/tags/GitHub-Pages/"/>
     
   </entry>
   
