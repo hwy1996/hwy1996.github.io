@@ -44,7 +44,7 @@
     <link href="http://example.com/2026/01/20/hello-world/"/>
     <id>http://example.com/2026/01/20/hello-world/</id>
     <published>2026-01-20T07:31:08.691Z</published>
-    <updated>2026-01-20T13:00:38.518Z</updated>
+    <updated>2026-01-21T05:45:31.603Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start">Quick Start</h2><h3 id="Create-a-new-post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
     
@@ -57,16 +57,10 @@
     
     <category term="教程" scheme="http://example.com/categories/%E6%95%99%E7%A8%8B/"/>
     
-    <category term="博客搭建" scheme="http://example.com/categories/%E6%95%99%E7%A8%8B/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-    <category term="Hexo" scheme="http://example.com/categories/%E6%95%99%E7%A8%8B/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/Hexo/"/>
-    
     
     <category term="个人技术博客搭建" scheme="http://example.com/tags/%E4%B8%AA%E4%BA%BA%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
     <category term="Hexo" scheme="http://example.com/tags/Hexo/"/>
-    
-    <category term="GitHub Pages" scheme="http://example.com/tags/GitHub-Pages/"/>
     
   </entry>
   
